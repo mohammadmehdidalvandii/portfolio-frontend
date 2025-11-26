@@ -45,5 +45,7 @@
 html {
   scroll-behavior: smooth;
 }
-
+.glass_btn{
+  @apply relative backdrop-blur-xl bg-slate-800/40 border border-slate-700/50 rounded-lg text-white hover:bg-slate-700/40 transition-all duration-300 shadow-lg hover:shadow-blue-500/20
+}
 }
