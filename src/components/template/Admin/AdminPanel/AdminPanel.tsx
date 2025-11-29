@@ -1,6 +1,7 @@
 import { Cart } from '@components/ui/cart'
 import { Award, Briefcase, Code, Key, User, X } from 'lucide-react'
 import React, { useState } from 'react'
+import HeroEditor from '../HeroEditor/HeroEditor';
 
 const AdminPanel:React.FC = ()=>{
     const [activeTab , setActiveTab] = useState('hero');
@@ -40,7 +41,7 @@ const AdminPanel:React.FC = ()=>{
                         ))}
                     </div>
                     <div className="bg-slate-800/30 p-6 rounded-lg">
-                        {activeTab === 'hero' && (<h1>tabs hero</h1>)}
+                        {activeTab === 'hero' && (<HeroEditor/>)}
                         {activeTab === 'projects' && (<h1>tabs projects</h1>)}
                         {activeTab === 'skills' && (<h1>tabs skills</h1>)}
                         {activeTab === 'experience' && (<h1>tabs experience</h1>)}

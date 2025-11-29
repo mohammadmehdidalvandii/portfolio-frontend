@@ -51,4 +51,7 @@ body{
 .glass_btn{
   @apply relative backdrop-blur-xl bg-slate-800/40 border border-slate-700/50 rounded-lg text-white hover:bg-slate-700/40 transition-all duration-300 shadow-lg hover:shadow-blue-500/20 hover:scale-110 cursor-pointer
 }
+.admin_btn{
+  @apply w-full py-3 bg-linear-to-r from-blue-500 to-purple-500 text-white font-InterBold rounded-lg hover:opacity-90 transition-opacity cursor-pointer
+}
 }
