@@ -15,7 +15,6 @@ const HeroEditor:React.FC = ()=>{
             </div>
             <div>
                 <Label>Bio</Label> 
-                {/* <Input type='text'/> */}
                 <textarea rows={4}
                 className='w-full px-4 py-4 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:outline-none focus:border-blue-500'
                 ></textarea>
