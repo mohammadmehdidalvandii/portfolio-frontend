@@ -1,3 +1,4 @@
+import Experience from '@components/template/home/Experience/Experience'
 import Hero from '@components/template/home/Hero/Hero'
 import Projects from '@components/template/home/Projects/Projects'
 import Skills from '@components/template/home/Skills/Skills'
@@ -9,6 +10,7 @@ const Home:React.FC = ()=>{
     <Hero/>
     <Projects/>
     <Skills/>
+    <Experience/>
     </>
   )
 }
