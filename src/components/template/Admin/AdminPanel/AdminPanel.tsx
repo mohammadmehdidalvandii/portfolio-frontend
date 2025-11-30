@@ -3,6 +3,7 @@ import { Award, Briefcase, Code, Key, User, X } from 'lucide-react'
 import React, { useState } from 'react'
 import HeroEditor from '../HeroEditor/HeroEditor';
 import Projects from '@components/template/Admin/Projects/Projects';
+import SkillsAdmin from '../SkillsAdmin/SkillsAdmin';
 
 const AdminPanel:React.FC = ()=>{
     const [activeTab , setActiveTab] = useState('hero');
@@ -44,7 +45,7 @@ const AdminPanel:React.FC = ()=>{
                     <div className="bg-slate-800/30 p-6 rounded-lg">
                         {activeTab === 'hero' && (<HeroEditor/>)}
                         {activeTab === 'projects' && (<Projects/>)}
-                        {activeTab === 'skills' && (<h1>tabs skills</h1>)}
+                        {activeTab === 'skills' && (<SkillsAdmin/>)}
                         {activeTab === 'experience' && (<h1>tabs experience</h1>)}
                         {activeTab === 'settings' && (<h1>tabs settings</h1>)}
                     </div>
