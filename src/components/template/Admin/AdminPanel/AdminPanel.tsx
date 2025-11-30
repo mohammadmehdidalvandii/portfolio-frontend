@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import HeroEditor from '../HeroEditor/HeroEditor';
 import Projects from '@components/template/Admin/Projects/Projects';
 import SkillsAdmin from '../SkillsAdmin/SkillsAdmin';
+import ExperienceAdmin from '../ExperienceAdmin/ExperienceAdmin';
 
 const AdminPanel:React.FC = ()=>{
     const [activeTab , setActiveTab] = useState('hero');
@@ -46,7 +47,7 @@ const AdminPanel:React.FC = ()=>{
                         {activeTab === 'hero' && (<HeroEditor/>)}
                         {activeTab === 'projects' && (<Projects/>)}
                         {activeTab === 'skills' && (<SkillsAdmin/>)}
-                        {activeTab === 'experience' && (<h1>tabs experience</h1>)}
+                        {activeTab === 'experience' && (<ExperienceAdmin/>)}
                         {activeTab === 'settings' && (<h1>tabs settings</h1>)}
                     </div>
                 </Cart>
