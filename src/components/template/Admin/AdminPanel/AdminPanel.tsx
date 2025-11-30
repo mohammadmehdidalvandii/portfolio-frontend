@@ -14,7 +14,6 @@ const AdminPanel:React.FC = ()=>{
         {id:'projects', label:'Projects' , icon:Briefcase},
         {id:'skills' , label:'Skills' , icon:Code},
         {id:'experience' , label:'Experience' , icon:Award},
-        {id:'settings' , label:'Settings' , icon:Key},
     ]
 
   return (
@@ -48,7 +47,6 @@ const AdminPanel:React.FC = ()=>{
                         {activeTab === 'projects' && (<Projects/>)}
                         {activeTab === 'skills' && (<SkillsAdmin/>)}
                         {activeTab === 'experience' && (<ExperienceAdmin/>)}
-                        {activeTab === 'settings' && (<h1>tabs settings</h1>)}
                     </div>
                 </Cart>
             </div>
