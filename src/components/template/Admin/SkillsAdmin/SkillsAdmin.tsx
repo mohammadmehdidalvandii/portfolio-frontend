@@ -23,6 +23,7 @@ const SkillsAdmin:React.FC = ()=>{
         />)}
 
         <div className="space-y-3">
+            {!isEditSkill && (
             <div className="bg-slate-800/50 p-4 rounded-lg">
                 <div className="flex justify-between items-center">
                     <div className="flex-1">
@@ -40,23 +41,7 @@ const SkillsAdmin:React.FC = ()=>{
                     </div>
                 </div>
             </div>
-            <div className="bg-slate-800/50 p-4 rounded-lg">
-                <div className="flex justify-between items-center">
-                    <div className="flex-1">
-                        <h3 className="font-InterBold font-semibold text-white">Javascript</h3>
-                    </div>
-                    <div className="flex gap-2 ml-4">
-                        <button className="p-2 text-blue-400 hover:bg-slate-700 rounded cursor-pointer"
-                        onClick={()=>setIsEditSkill(true)}
-                        >
-                            <Edit2 className='w-4 h-4'/>
-                        </button>
-                        <button className="p-2 text-red-400 hover:bg-slate-700 rounded cursor-pointer">
-                            <Trash2 className='w-4 h-4'/>
-                        </button>
-                    </div>
-                </div>
-            </div>
+            )}
         </div>
         {isEditSkill && (<EditSkill
         handlerEditSkillCancel={()=>setIsEditSkill(false)}

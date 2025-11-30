@@ -1,5 +1,5 @@
 import { Cart } from '@components/ui/cart'
-import { Award, Briefcase, Code, Key, User, X } from 'lucide-react'
+import { Award, Briefcase, Code, User, X } from 'lucide-react'
 import React, { useState } from 'react'
 import HeroEditor from '../HeroEditor/HeroEditor';
 import Projects from '@components/template/Admin/Projects/Projects';
