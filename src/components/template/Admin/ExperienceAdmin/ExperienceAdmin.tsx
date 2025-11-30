@@ -18,7 +18,7 @@ const ExperienceAdmin:React.FC = ()=>{
         </button>
         )}
         {isAddExperience && (<AddExperience
-        handlerCancelExp={()=>setIsEditExperience(false)}
+        handlerCancelExp={()=>setIsExperience(false)}
         />)}
         <div className="space-y-3">
             {!isEditExperience && (
