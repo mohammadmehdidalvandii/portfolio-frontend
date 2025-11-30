@@ -54,4 +54,7 @@ body{
 .admin_btn{
   @apply w-full py-3 bg-linear-to-r from-blue-500 to-purple-500 text-white font-InterBold rounded-lg hover:opacity-90 transition-opacity cursor-pointer
 }
+.btn_cancel{
+  @apply w-full py-2 font-InterBold font-semibold text-white rounded-lg bg-slate-700 hover:bg-slate-600 cursor-pointer;
+}
 }
