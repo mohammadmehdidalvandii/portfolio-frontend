@@ -1,8 +1,21 @@
 import { Badge } from '@components/ui/Badge'
 import { Cart } from '@components/ui/cart'
-import React from 'react'
+import { SkillProps } from '../../../../types/skills';
+import React, { useEffect, useState } from 'react'
 
 const Skills:React.FC = ()=>{
+      const [skills , setSkills] = useState<SkillProps[]>([]);
+        console.log("skills", skills)
+          useEffect(()=>{
+              const fetchData = async()=>{
+                  const res = await fetch('http://localhost:3000/api/skills');
+                  if(res.ok){
+                      const data = await res.json()
+                      setSkills(data.data)
+                  }
+              };
+              fetchData();
+          },[])
   return (
     <section className="py-20 px-6">
         <div className="max-w-6xl mx-auto">
@@ -10,35 +23,43 @@ const Skills:React.FC = ()=>{
             <div className="grid md:grid-cols-2 gap-8">
                 <Cart className='p-6'>
                     <h3 className="text-xl font-InterBold font-bold text-blue-400">Frontend</h3>
-                    <div className="flex flex-wrap gap-8 mt-4">
-                    <Badge variant='success'>HTML</Badge>
-                    <Badge variant='success'>CSS</Badge>
-                    <Badge variant='success'>JAVASCRIPT</Badge>
-                    <Badge variant='success'>REACT</Badge>
-                    <Badge variant='success'>NEXT.JS</Badge>
-                    <Badge variant='success'>TYPESCRIPT</Badge>
-                    </div>
+                    <div className="flex flex-wrap gap-4 mt-4">
+                       {skills
+                         .filter(skill => skill.category === "frontend")
+                         .map(skill => (
+                           <Badge key={skill._id} variant="success">{skill.name || 'empty   '}</Badge>
+                         ))}
+                     </div>
                 </Cart>
                 <Cart className='p-6'>
                     <h3 className="text-xl font-InterBold font-bold text-blue-400">Backend</h3>
-                    <div className="flex flex-wrap gap-8 mt-4">
-                    <Badge variant='success'>NODE.JS</Badge>
-                    <Badge variant='success'>EXPRESS.JS</Badge>
-                    <Badge variant='success'>FASTIFY</Badge>
-                    </div>
+                    <div className="flex flex-wrap gap-4 mt-4">
+                       {skills
+                         .filter(skill => skill.category === "backend")
+                         .map(skill => (
+                           <Badge key={skill._id} variant="success">{skill.name || 'empty'}</Badge>
+                         ))}
+                     </div>
                 </Cart>
                 <Cart className='p-6'>
                     <h3 className="text-xl font-InterBold font-bold text-blue-400">Database</h3>
-                    <div className="flex flex-wrap gap-8 mt-4">
-                    <Badge variant='success'>MONGODB</Badge>
-                    <Badge variant='success'>MYSQL</Badge>
-                    </div>
+                    <div className="flex flex-wrap gap-4 mt-4">
+                       {skills
+                         .filter(skill => skill.category === "database")
+                         .map(skill => (
+                           <Badge key={skill._id} variant="success">{skill.name || 'empty'}</Badge>
+                         ))}
+                     </div>
                 </Cart>
                 <Cart className='p-6'>
                     <h3 className="text-xl font-InterBold font-bold text-blue-400">Tools &  DevOps</h3>
-                    <div className="flex flex-wrap gap-8 mt-4">
-                    <Badge variant='success'>JEST</Badge>
-                    </div>
+                    <div className="flex flex-wrap gap-4 mt-4">
+                       {skills
+                         .filter(skill => skill.category === "devops")
+                         .map(skill => (
+                           <Badge key={skill._id} variant="success">{skill.name || 'empty'}</Badge>
+                         ))}
+                     </div>
                 </Cart>
             </div>
         </div>
