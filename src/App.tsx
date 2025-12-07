@@ -1,3 +1,4 @@
+import Loading from "@components/modules/Loading";
 import AdminLayout from "@layouts/AdminLayout/AdminLayout";
 import Admin from "@page/Admin/Admin";
 import { lazy, Suspense } from "react";
@@ -10,7 +11,7 @@ const Login = lazy(()=>import('@page/Login/Login'));
 function App() {
   return (
     <BrowserRouter>
-    <Suspense>
+    <Suspense fallback={<Loading/>}>
       <Routes>
         <Route path="/" element={<Home/>}/>
         <Route path="/Login" element={<Login/>}/>
