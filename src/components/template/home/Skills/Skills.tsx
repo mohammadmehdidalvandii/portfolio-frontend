@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react'
 
 const Skills:React.FC = ()=>{
       const [skills , setSkills] = useState<SkillProps[]>([]);
-        console.log("skills", skills)
           useEffect(()=>{
               const fetchData = async()=>{
                   const res = await fetch('http://localhost:3000/api/skills');
