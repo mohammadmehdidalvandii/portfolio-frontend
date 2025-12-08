@@ -1,4 +1,5 @@
 export type HeroProps ={
+    _id:string
     name:string,
     title:string,
     bio:string,
