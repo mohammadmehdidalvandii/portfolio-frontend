@@ -8,6 +8,7 @@ const SkillsAdmin: React.FC = () => {
   const [isAddSkill, setIsAddSkill] = useState(false);
   const [isEditSkill, setIsEditSkill] = useState(false);
   const [skills, setSkills] = useState<SkillProps[]>([]);
+  const [editSkill , setEditSkill] = useState<SkillProps>()
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,7 +49,10 @@ const SkillsAdmin: React.FC = () => {
               <div className="flex gap-2 ml-4">
                 <button
                   className="p-2 text-blue-400 hover:bg-slate-700 rounded cursor-pointer"
-                  onClick={() => setIsEditSkill(true)}
+                  onClick={() =>{
+                    setEditSkill(skill)
+                    setIsEditSkill(true)
+                  }}
                 >
                   <Edit2 className="w-4 h-4" />
                 </button>
@@ -62,7 +66,7 @@ const SkillsAdmin: React.FC = () => {
         )}
       </div>
       {isEditSkill && (
-        <EditSkill handlerEditSkillCancel={() => setIsEditSkill(false)} />
+        <EditSkill handlerEditSkillCancel={() => setIsEditSkill(false)}  skill={editSkill!}/>
       )}
     </div>
   );
