@@ -1,4 +1,3 @@
-import { Badge } from "@components/ui/Badge";
 import { Edit2, Plus, Trash2 } from "lucide-react";
 import React, { lazy, useEffect, useState } from "react";
 import EditProject from "./EditProject";
@@ -12,6 +11,7 @@ const Projects: React.FC = () => {
   const [isAddProject, setIsAddProject] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
     const [projects , setProjects] = useState<ProjectsProps[]>([]);
+    const [selectedProject , setSelectedProject] = useState<ProjectsProps>()
   
         useEffect(()=>{
             const fetchData = async()=>{
@@ -55,7 +55,10 @@ const Projects: React.FC = () => {
               <div className="flex gap-2">
                 <button
                   className="p-2 text-blue-400 hover:bg-slate-700 rounded cursor-pointer"
-                  onClick={() => setIsEditing(true)}
+                  onClick={() => {
+                    setSelectedProject(project)
+                    setIsEditing(true)
+                  }}
                 >
                   <Edit2 className="w-4 h-4" />
                 </button>
@@ -69,7 +72,7 @@ const Projects: React.FC = () => {
         ))
       )}
       {isEditing && (
-        <EditProject handlerCancelEdit={() => setIsEditing(false)} />
+        <EditProject handlerCancelEdit={() => setIsEditing(false)} project={selectedProject!} />
       )}
     </div>
   );
