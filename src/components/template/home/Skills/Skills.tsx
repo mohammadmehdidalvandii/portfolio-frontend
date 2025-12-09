@@ -24,7 +24,7 @@ const Skills:React.FC = ()=>{
                     <h3 className="text-xl font-InterBold font-bold text-blue-400">Frontend</h3>
                     <div className="flex flex-wrap gap-4 mt-4">
                        {skills
-                         .filter(skill => skill.category === "frontend")
+                         .filter(skill => skill.category === "Frontend")
                          .map(skill => (
                            <Badge key={skill._id} variant="success">{skill.name || 'empty   '}</Badge>
                          ))}
@@ -34,7 +34,7 @@ const Skills:React.FC = ()=>{
                     <h3 className="text-xl font-InterBold font-bold text-blue-400">Backend</h3>
                     <div className="flex flex-wrap gap-4 mt-4">
                        {skills
-                         .filter(skill => skill.category === "backend")
+                         .filter(skill => skill.category === "Backend")
                          .map(skill => (
                            <Badge key={skill._id} variant="success">{skill.name || 'empty'}</Badge>
                          ))}
@@ -44,7 +44,7 @@ const Skills:React.FC = ()=>{
                     <h3 className="text-xl font-InterBold font-bold text-blue-400">Database</h3>
                     <div className="flex flex-wrap gap-4 mt-4">
                        {skills
-                         .filter(skill => skill.category === "database")
+                         .filter(skill => skill.category === "Database")
                          .map(skill => (
                            <Badge key={skill._id} variant="success">{skill.name || 'empty'}</Badge>
                          ))}
@@ -54,7 +54,7 @@ const Skills:React.FC = ()=>{
                     <h3 className="text-xl font-InterBold font-bold text-blue-400">Tools &  DevOps</h3>
                     <div className="flex flex-wrap gap-4 mt-4">
                        {skills
-                         .filter(skill => skill.category === "devops")
+                         .filter(skill => skill.category === "ToolDevops")
                          .map(skill => (
                            <Badge key={skill._id} variant="success">{skill.name || 'empty'}</Badge>
                          ))}
