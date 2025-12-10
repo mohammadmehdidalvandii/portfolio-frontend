@@ -22,7 +22,22 @@ const Projects: React.FC = () => {
                 }
             };
             fetchData();
-        },[])
+        },[]);
+
+
+        const handlerDeleteProject = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>, projectID:string)=>{
+          e.preventDefault();
+          if(!projectID){
+            alert('ProjectID is required');
+          }
+          const res = await fetch(`http://localhost:3000/api/projects/delete/${projectID}`,{
+            method:"DELETE"
+          });
+
+          if(res.status === 204){
+            alert('Deleted Project successfully ✅');
+          }
+        }
 
   return (
     <div className="space-y-4">
@@ -62,7 +77,9 @@ const Projects: React.FC = () => {
                 >
                   <Edit2 className="w-4 h-4" />
                 </button>
-                <button className="p-2 text-red-400 hover:bg-slate-700 rounded cursor-pointer">
+                <button className="p-2 text-red-400 hover:bg-slate-700 rounded cursor-pointer"
+                onClick={(e)=>handlerDeleteProject(e , project._id)}
+                >
                   <Trash2 />
                 </button>
               </div>
