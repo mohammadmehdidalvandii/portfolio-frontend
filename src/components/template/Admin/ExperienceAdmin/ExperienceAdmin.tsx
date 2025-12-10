@@ -19,7 +19,22 @@ const ExperienceAdmin:React.FC = ()=>{
                 }
             };
             fetchData();
-        },[])
+        },[]);
+
+        const handlerDeleteExp = async(e:React.MouseEvent<HTMLButtonElement , MouseEvent> , expID:string)=>{
+            e.preventDefault();
+            if(!expID){
+                alert('Experience ID is required ❌')
+            }
+
+            const res = await fetch(`http://localhost:3000/api/experience/delete/${expID}`,{
+                method:"DELETE",
+            });
+
+            if(res.status === 204){
+                alert('Deleted Experience successfully ✅')
+            }
+        }
 
   return (
     <div className="space-y-4">
@@ -56,7 +71,9 @@ const ExperienceAdmin:React.FC = ()=>{
                                 >
                                     <Edit2 className='w-4 h-4'/>
                                 </button>
-                                <button className="p-2 text-red-400 hover:bg-slate-700 rounded cursor-pointer">
+                                <button className="p-2 text-red-400 hover:bg-slate-700 rounded cursor-pointer"
+                                onClick={(e)=>handlerDeleteExp(e, exp._id)}
+                                >
                                     <Trash2 className='w-4 h-4'/>
                                 </button>
                             </div>
