@@ -43,7 +43,7 @@ const SkillsAdmin: React.FC = () => {
             <div className="flex justify-between items-center">
               <div className="flex-1">
                 <h3 className="font-InterBold font-semibold text-white">
-                  {skill.name}
+                  {skill.name} - {skill.category}
                 </h3>
               </div>
               <div className="flex gap-2 ml-4">
