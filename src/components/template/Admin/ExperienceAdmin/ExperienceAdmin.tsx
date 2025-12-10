@@ -8,7 +8,8 @@ const ExperienceAdmin:React.FC = ()=>{
     const [isAddExperience , setIsExperience] = useState(false);
     const [isEditExperience , setIsEditExperience] = useState(false);
     const [experience , setExperience] = useState<ExperienceProps[]>([]);
-        console.log("exp", experience)
+    const [editExperience , setEditExperience] = useState<ExperienceProps>();
+
         useEffect(()=>{
             const fetchData = async()=>{
                 const res = await fetch('http://localhost:3000/api/experience');
@@ -48,7 +49,10 @@ const ExperienceAdmin:React.FC = ()=>{
                             </div>
                                 <div className="flex gap-2 ml-4">
                                 <button className="p-2 text-blue-400 hover:bg-slate-700 rounded cursor-pointer"
-                                onClick={()=>setIsEditExperience(true)}
+                                onClick={()=>{
+                                    setEditExperience(exp)
+                                    setIsEditExperience(true)
+                                }}
                                 >
                                     <Edit2 className='w-4 h-4'/>
                                 </button>
@@ -61,7 +65,7 @@ const ExperienceAdmin:React.FC = ()=>{
                 ))
             )}
             {isEditExperience && (<EditExperience
-            
+            experience={editExperience!}
             handlerCancelEditExp={()=>setIsEditExperience(false)}/>)}
 
         </div>
