@@ -21,6 +21,21 @@ const SkillsAdmin: React.FC = () => {
     fetchData();
   }, []);
 
+  const handlerDeleteSkill = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent> , skillID:string)=>{
+    e.preventDefault();
+    if(!skillID){
+      alert("SkillID is Required")
+    }
+
+    const res = await fetch(`http://localhost:3000/api/skills/delete/${skillID}`,{
+      method:"DELETE",
+    })
+
+    if(res.status === 204){
+      alert('Deleted skill successfully ✅')
+    }
+  }
+
   return (
     <div className="space-y-4">
       {!isAddSkill && (
@@ -56,7 +71,9 @@ const SkillsAdmin: React.FC = () => {
                 >
                   <Edit2 className="w-4 h-4" />
                 </button>
-                <button className="p-2 text-red-400 hover:bg-slate-700 rounded cursor-pointer">
+                <button className="p-2 text-red-400 hover:bg-slate-700 rounded cursor-pointer"
+                onClick={(e)=>handlerDeleteSkill(e, skill._id)}
+                >
                   <Trash2 className="w-4 h-4" />
                 </button>
               </div>
