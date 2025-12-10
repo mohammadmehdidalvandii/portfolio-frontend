@@ -5,6 +5,7 @@ import HeroEditor from '../HeroEditor/HeroEditor';
 import Projects from '@components/template/Admin/Projects/Projects';
 import SkillsAdmin from '../SkillsAdmin/SkillsAdmin';
 import ExperienceAdmin from '../ExperienceAdmin/ExperienceAdmin';
+import swal from 'sweetalert'
 
 const AdminPanel:React.FC = ()=>{
     const [activeTab , setActiveTab] = useState('hero');
@@ -16,6 +17,21 @@ const AdminPanel:React.FC = ()=>{
         {id:'experience' , label:'Experience' , icon:Award},
     ]
 
+
+    const handlerExitPanel:React.MouseEventHandler = ()=>{
+        swal({
+            icon:"warning",
+            title:'Do you want exit panel ?',
+            buttons:['No' , 'Yes']
+        }).then((result)=>{
+            if(result){
+                localStorage.removeItem('token')
+                window.location.replace('/')
+            }
+        })
+    }
+
+
   return (
     <section className="fixed inset-0 bg-slate-900/95 backdrop-blur-sm z-50 overflow-y-auto">
         <div className="min-h-screen py-8 px-6">
@@ -23,7 +39,9 @@ const AdminPanel:React.FC = ()=>{
                 <Cart className='p-6'>
                     <div className="flex justify-between items-center mb-6">
                         <h2 className="text-3xl font-InterBold font-bold bg-linear-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Admin Panel</h2>
-                        <button className="p-2 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer">
+                        <button className="p-2 hover:bg-slate-800 rounded-lg transition-colors cursor-pointer" 
+                            onClick={handlerExitPanel}
+                        >
                             <X className='w-6 h-6 text-slate-400'/>
                         </button>
                     </div>
